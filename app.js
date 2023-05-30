@@ -1,3 +1,10 @@
+class Calculator {
+  constructor(previousOperandTextElement, currentOperandTextElement) {
+    this.previousOperandTextElement = previousOperandTextElement;
+    this.currentOperandTextElement = currentOperandTextElement;
+  }
+}
+
 const numberButtons = document.getElementsByClassName("operand");
 const operationButtons = document.getElementsByClassName("operation");
 const allClearButton = document.getElementById("all-clear-btn");
