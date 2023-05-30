@@ -3,6 +3,10 @@ class Calculator {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
   }
+
+  appendNumber(number) {}
+
+  updateDisplay() {}
 }
 
 const numberButtons = document.getElementsByClassName("operand");
@@ -13,6 +17,18 @@ const decimalButton = document.getElementById("decimal-btn");
 const equalsButton = document.getElementById("equals-btn");
 const previousOperandTextElement = document.getElementById("previous-operand");
 const currentOperandTextElement = document.getElementById("current-operand");
+
+const calculator = new Calculator(
+  previousOperandTextElement,
+  currentOperandTextElement
+);
+
+Array.from(numberButtons).forEach((button) => {
+  button.addEventListener("click", () => {
+    calculator.appendNumber(button.innerText);
+    calculator.updateDisplay();
+  });
+});
 
 const addNumber = (firstNumber, secondNumber) => {
   return firstNumber + secondNumber;
@@ -31,15 +47,3 @@ const displayCharacter = (button) => {
   const displayExpression = document.getElementById("display");
   console.log(displayExpression);
 };
-
-// const addBtn = document.getElementById("add-btn");
-// const subtractBtn = document.getElementById("add-btn");
-// const multiplyBtn = document.getElementById("add-btn");
-// const divideBtn = document.getElementById("add-btn");
-
-function calculator() {
-  const buttons = document.querySelectorAll("button");
-  Array.from(buttons).forEach((button) => {
-    button.addEventListener("click", displayCharacter(button));
-  });
-}
