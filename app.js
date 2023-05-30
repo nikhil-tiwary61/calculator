@@ -1,3 +1,12 @@
+const numberButtons = document.getElementsByClassName("operand");
+const operationButtons = document.getElementsByClassName("operation");
+const allClearButton = document.getElementById("all-clear-btn");
+const deleteButton = document.getElementById("delete-btn");
+const decimalButton = document.getElementById("decimal-btn");
+const equalsButton = document.getElementById("equals-btn");
+const previousOperandTextElement = document.getElementById("previous-operand");
+const currentOperandTextElement = document.getElementById("current-operand");
+
 const addNumber = (firstNumber, secondNumber) => {
   return firstNumber + secondNumber;
 };
