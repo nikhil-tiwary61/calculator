@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.calculator {
+    height: 500px;
+    width: 250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    box-sizing: border-box;
+}
+
+.display {
+    grid-area: 1 / 1 / auto / span 4;
+}
+
+#all-clear-btn {
+    grid-area: 2 / 1 / auto / span 2;
+}
+
+#delete-btn {
+    grid-area: 2 / 3 / auto / span 2;
+}
