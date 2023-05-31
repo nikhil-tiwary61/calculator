@@ -63,7 +63,9 @@ class Calculator {
   }
 
   updateDisplay() {
-    this.previousOperandTextElement.innerText = this.previousOperand;
+    this.operation !== undefined
+      ? (this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`)
+      : (this.previousOperandTextElement.innerText = "");
     this.currentOperandTextElement.innerText = this.currentOperand;
   }
 }
