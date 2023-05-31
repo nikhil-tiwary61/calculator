@@ -18,7 +18,22 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
-  updateDisplay() {}
+  choseOperation(operation) {
+    if (this.currentOperand === "") {
+      return;
+    }
+    if (this.previousOperand !== "") {
+      this.compute();
+    }
+    this.operation = operation;
+    this.previousOperand = this.currentOperand;
+    this.currentOperand = "";
+  }
+
+  updateDisplay() {
+    this.previousOperandTextElement.innerText = this.previousOperand;
+    this.currentOperandTextElement.innerText = this.currentOperand;
+  }
 }
 
 const numberButtons = document.getElementsByClassName("operand");
@@ -42,20 +57,9 @@ Array.from(numberButtons).forEach((button) => {
   });
 });
 
-const addNumber = (firstNumber, secondNumber) => {
-  return firstNumber + secondNumber;
-};
-const subtractNumber = (firstNumber, secondNumber) => {
-  return firstNumber - secondNumber;
-};
-const multiplyNumber = (firstNumber, secondNumber) => {
-  return firstNumber * secondNumber;
-};
-const divideNumber = (firstNumber, secondNumber) => {
-  return firstNumber / secondNumber;
-};
-
-const displayCharacter = (button) => {
-  const displayExpression = document.getElementById("display");
-  console.log(displayExpression);
-};
+Array.from(operationButtons).forEach((button) => {
+  button.addEventListener("click", () => {
+    calculator.choseOperation(button.innerText);
+    calculator.updateDisplay();
+  });
+});
