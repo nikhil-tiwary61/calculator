@@ -104,3 +104,9 @@ button {
     box-shadow: inset 4px 4px 12px #a37605,
     inset -4px -4px 12px #614303;
 }
+
+@media screen and (max-width: 376px) {
+    .calculator{
+        width: 85vw;
+    }
+}
