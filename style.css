@@ -1,3 +1,13 @@
+:root {
+    --calculatorBodyBorder: darkslategray;
+    --calculatorBody: gray;
+    --display: #0f530d;
+    --prevOperandColor: rgb(160, 160, 160);
+    --currOperandColor: white;
+    --operandHover: #1e90ff;
+    --specialKeys: orange;
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -12,11 +22,16 @@ body{
 }
 .calculator {
     height: 90vh;
-    width: 300px;
+    width: 361px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    box-sizing: border-box;
+    box-sizing: content-box;
+    gap: 2px;
+    padding: 13px;
+    border: 2px solid var(--calculatorBodyBorder);
+    background-color: var(--calculatorBody);
+    border-radius: 22px;
 }
 
 .display {
@@ -27,13 +42,30 @@ body{
     grid-area: 1 / 1 / auto / span 4;
     height: 15vh;
     width: inherit;
-    background-color: black;
-    color: white;
+    background-color: var(--display);
+    border-radius: 12px;
 }
 
-div > #previous-operand, div > #current-operand {
-    height: 7.5vh;
+div > #previous-operand {
     width: inherit;
+    height: 5vh;
+    font-size: 1.5rem;
+    color: var(--prevOperandColor);
+    text-align: end;
+    box-sizing: border-box;
+    padding: 1px;
+    margin-right: 5px;
+}
+
+div > #current-operand {
+    width: inherit;
+    height: 10vh;
+    font-size: 3rem;
+    text-align: end;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-right: 5px;
+    color: var(--currOperandColor);
 }
 
 #all-clear-btn {
@@ -42,4 +74,39 @@ div > #previous-operand, div > #current-operand {
 
 #delete-btn {
     grid-area: 2 / 3 / auto / span 2;
+}
+
+button {
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+:is(.operand:hover, #equals-btn:hover) {
+    background-color: var(--operandHover);
+}
+
+:is(.operand:active, #equals-btn:active) {
+    box-shadow: inset 4px 4px 12px #054985,
+    inset -4px -4px 12px #030751;
+}
+
+#all-clear-btn, #delete-btn, .operation {
+    background-color: var(--specialKeys);
+}
+
+:is(.operation:hover, #all-clear-btn:hover, #delete-btn:hover) {
+    border-style: dashed;
+}
+
+:is(.operation:active, #all-clear-btn:active, #delete-btn:active) {
+    box-shadow: inset 4px 4px 12px #a37605,
+    inset -4px -4px 12px #614303;
+}
+
+@media screen and (max-width: 376px) {
+    .calculator{
+        width: 85vw;
+    }
 }
