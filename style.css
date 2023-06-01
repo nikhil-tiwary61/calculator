@@ -1,7 +1,7 @@
 :root {
     --calculatorBodyBorder: darkslategray;
     --calculatorBody: gray;
-    --display: #252525;
+    --display: #0f530d;
     --prevOperandColor: rgb(160, 160, 160);
     --currOperandColor: white;
     --operandHover: #1e90ff;
