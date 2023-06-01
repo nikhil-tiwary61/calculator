@@ -1,3 +1,10 @@
+:root {
+    --display: #252525;
+    --dimWhite: rgb(160, 160, 160);
+    --operandHover: #1e90ff;
+    --specialKeys: orange;
+  }
+
 *{
     margin: 0;
     padding: 0;
@@ -28,7 +35,7 @@ body{
     grid-area: 1 / 1 / auto / span 4;
     height: 15vh;
     width: inherit;
-    background-color: #252525;
+    background-color: var(--display);
     color: white;
 }
 
@@ -36,7 +43,7 @@ div > #previous-operand {
     width: inherit;
     height: 5vh;
     font-size: 1.5rem;
-    color: rgb(160, 160, 160);
+    color: var(--dimWhite);
     text-align: end;
     box-sizing: border-box;
     padding: 1px;
@@ -59,4 +66,32 @@ div > #current-operand {
 
 #delete-btn {
     grid-area: 2 / 3 / auto / span 2;
+}
+
+button {
+    border-radius: 12px;
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+:is(.operand:hover, #equals-btn:hover) {
+    background-color: var(--operandHover);
+}
+
+:is(.operand:active, #equals-btn:active) {
+    box-shadow: inset 4px 4px 12px #054985,
+                inset -4px -4px 12px #030751;
+   }
+
+#all-clear-btn, #delete-btn, .operation {
+    background-color: var(--specialKeys);
+}
+
+:is(.operation:hover, #all-clear-btn:hover, #delete-btn:hover) {
+    border-style: dashed;
+}
+:is(.operation:active, #all-clear-btn:active, #delete-btn:active) {
+    box-shadow: inset 4px 4px 12px #a37605,
+    inset -4px -4px 12px #614303;
 }
