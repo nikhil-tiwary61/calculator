@@ -12,11 +12,12 @@ body{
 }
 .calculator {
     height: 90vh;
-    width: 300px;
+    width: 361px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     box-sizing: border-box;
+    gap: 2px;
 }
 
 .display {
@@ -27,13 +28,29 @@ body{
     grid-area: 1 / 1 / auto / span 4;
     height: 15vh;
     width: inherit;
-    background-color: black;
+    background-color: #252525;
     color: white;
 }
 
-div > #previous-operand, div > #current-operand {
-    height: 7.5vh;
+div > #previous-operand {
     width: inherit;
+    height: 5vh;
+    font-size: 1.5rem;
+    color: rgb(160, 160, 160);
+    text-align: end;
+    box-sizing: border-box;
+    padding: 1px;
+    margin-right: 5px;
+}
+
+div > #current-operand {
+    width: inherit;
+    height: 10vh;
+    font-size: 3rem;
+    text-align: end;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-right: 5px;
 }
 
 #all-clear-btn {
