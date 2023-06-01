@@ -1,6 +1,9 @@
 :root {
+    --calculatorBodyBorder: darkslategray;
+    --calculatorBody: gray;
     --display: #252525;
-    --dimWhite: rgb(160, 160, 160);
+    --prevOperandColor: rgb(160, 160, 160);
+    --currOperandColor: white;
     --operandHover: #1e90ff;
     --specialKeys: orange;
   }
@@ -23,8 +26,12 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    box-sizing: border-box;
+    box-sizing: content-box;
     gap: 2px;
+    padding: 13px;
+    border: 2px solid var(--calculatorBodyBorder);
+    background-color: var(--calculatorBody);
+    border-radius: 22px;
 }
 
 .display {
@@ -36,14 +43,14 @@ body{
     height: 15vh;
     width: inherit;
     background-color: var(--display);
-    color: white;
+    border-radius: 12px;
 }
 
 div > #previous-operand {
     width: inherit;
     height: 5vh;
     font-size: 1.5rem;
-    color: var(--dimWhite);
+    color: var(--prevOperandColor);
     text-align: end;
     box-sizing: border-box;
     padding: 1px;
@@ -58,6 +65,7 @@ div > #current-operand {
     box-sizing: border-box;
     padding: 3px;
     margin-right: 5px;
+    color: var(--currOperandColor);
 }
 
 #all-clear-btn {
@@ -81,8 +89,8 @@ button {
 
 :is(.operand:active, #equals-btn:active) {
     box-shadow: inset 4px 4px 12px #054985,
-                inset -4px -4px 12px #030751;
-   }
+    inset -4px -4px 12px #030751;
+}
 
 #all-clear-btn, #delete-btn, .operation {
     background-color: var(--specialKeys);
@@ -91,6 +99,7 @@ button {
 :is(.operation:hover, #all-clear-btn:hover, #delete-btn:hover) {
     border-style: dashed;
 }
+
 :is(.operation:active, #all-clear-btn:active, #delete-btn:active) {
     box-shadow: inset 4px 4px 12px #a37605,
     inset -4px -4px 12px #614303;
